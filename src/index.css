@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Ocean-inspired color palette */
+    --background: 0 0% 100%;
+    --foreground: 199 100% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 199 100% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 199 100% 15%;
+
+    /* Deep ocean blue */
+    --primary: 199 100% 36%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Sea green accent */
+    --secondary: 192 100% 42%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 200 20% 95%;
+    --muted-foreground: 199 20% 40%;
+
+    /* Light ocean blue */
+    --accent: 195 100% 39%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 200 20% 90%;
+    --input: 200 20% 90%;
+    --ring: 199 100% 36%;
+
+    --radius: 0.75rem;
+
+    /* Ocean gradients */
+    --gradient-ocean: linear-gradient(135deg, hsl(199, 100%, 36%), hsl(192, 100%, 42%));
+    --gradient-ocean-light: linear-gradient(180deg, hsl(195, 100%, 95%), hsl(192, 100%, 85%));
+    --gradient-deep: linear-gradient(135deg, hsl(199, 80%, 25%), hsl(199, 100%, 36%));
+
+    /* Glass effect */
+    --glass-bg: hsla(0, 0%, 100%, 0.7);
+    --glass-border: hsla(199, 100%, 36%, 0.2);
+  }
+
+  .dark {
+    --background: 199 80% 8%;
+    --foreground: 0 0% 95%;
+
+    --card: 199 60% 12%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 199 60% 12%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 195 100% 45%;
+    --primary-foreground: 199 80% 8%;
+
+    --secondary: 192 90% 50%;
+    --secondary-foreground: 199 80% 8%;
+
+    --muted: 199 40% 20%;
+    --muted-foreground: 200 20% 65%;
+
+    --accent: 195 100% 39%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 199 40% 25%;
+    --input: 199 40% 25%;
+    --ring: 195 100% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  /* Ocean wave animation */
+  @keyframes wave {
+    0%, 100% {
+      transform: translateY(0) translateX(0);
+    }
+    50% {
+      transform: translateY(-10px) translateX(5px);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-wave {
+    animation: wave 3s ease-in-out infinite;
+  }
+
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out forwards;
+  }
+
+  .glass-morphism {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+  }
+
+  .ocean-gradient {
+    background: var(--gradient-ocean);
+  }
+
+  .ocean-gradient-light {
+    background: var(--gradient-ocean-light);
+  }
+}
